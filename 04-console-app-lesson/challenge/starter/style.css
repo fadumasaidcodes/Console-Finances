@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .heading {
+    display: grid;
+    place-items: center;
+  }
+  
+  h1 {
+    border-radius: 10px;
+  }
+  
