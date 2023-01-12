@@ -126,10 +126,12 @@ for (var i = 0; i < finances.length; i++) {
 // Calculate the average change
 var averageChange = changes.reduce((a, b) => a + b, 0) / changes.length;
 
+var rounded = averageChange.toFixed(2);
+
 // Display the results in the console
 console.log("Total Months: " + totalMonths);
 console.log("Net Total: " + netTotal);
-console.log("Average Change: " + averageChange);
+console.log("Average Change: " + rounded);
 console.log("Greatest Increase: " + greatestIncrease);
 console.log("Greatest Decrease: " + greatestDecrease);
 
@@ -144,6 +146,6 @@ var greatestDecreaseEl = document.getElementById("greatest-decrease");
 // Display the results in the HTML table
 totalMonthsEl.textContent = totalMonths;
 netTotalEl.textContent = netTotal;
-averageChangeEl.textContent = averageChange;
+averageChangeEl.textContent = rounded;
 greatestIncreaseEl.textContent = greatestIncrease[0] + ": " + greatestIncrease[1];
 greatestDecreaseEl.textContent = greatestDecrease[0] + ": " + greatestDecrease[1];
