@@ -1,3 +1,4 @@
+// Array of financial data
 
 var finances = [
   ['Jan-2010', 867884],
@@ -86,46 +87,63 @@ var finances = [
   ['Dec-2016', 60988],
   ['Jan-2017', 138230],
   ['Feb-2017', 671099]
-  ];
+  ];;
+
 // Count the total number of months represented in the data
-    var totalMonths = finances.length;
-    // Initialize a variable to keep track of the overall financial value
-    var netTotal = 0;
-    // Initialize variables to keep track of the greatest increase and decrease in financial value
-    var greatestIncrease = ["", 0];
-    var greatestDecrease = ["", 0];
-    //Initialize an array to store the change of money on each month
-    var changeArray = []
-    // Iterate over the finances array, starting at the first sub-array
-    for (var i = 0; i < totalMonths; i++) {
-      netTotal += finances[i][1];
-       //Calculate the change in financial value
-      if (i > 0) {
-        var change = finances[i][1] - finances[i - 1][1];
-        changeArray.push(change)
-            // Update the greatest increase and greatest decrease values if necessary
-        if (change > greatestIncrease[1]) {
-          greatestIncrease[1] = change;
-          greatestIncrease[0] = finances[i][0];
-        }
-        if (change < greatestDecrease[1]) {
-          greatestDecrease[1] = change;
-          greatestDecrease[0] = finances[i][0];
-        }
-      }
+var totalMonths = finances.length;
+// Initialize a variable to keep track of the overall financial value
+var netTotal = 0;
+// Initialize a variable to keep track of the changes in financial value
+var changes = [];
+// Initialize variables to keep track of the greatest increase and decrease
+var greatestIncrease = ['', 0];
+var greatestDecrease = ['', 0];
+
+// Loop through the array of financial data
+for (var i = 0; i < finances.length; i++) {
+  // Add the current value to the net total
+  let roundedValue = Math.floor(finances[i][1]);
+  netTotal += roundedValue;
+  
+  
+  
+  // If this is not the first item in the array, calculate the change from the previous month
+  if (i > 0) {
+    var change = finances[i][1] - finances[i - 1][1];
+    changes.push(change);
+    // Check if this change is the greatest increase or decrease so far
+    if (change > greatestIncrease[1]) {
+      greatestIncrease[0] = finances[i][0];
+      greatestIncrease[1] = change;
     }
-    // Calculate the average change
-    var averageChange = changeArray.reduce(function(a, b) {
-      return a + b;
-    }, 0) / changeArray.length;
-  
-    var output = document.getElementById("output");
-    var result = "Total months: " + totalMonths + "<br>" +
-                 "Net total: " + netTotal + "<br>" +
-                 "Average change: " + averageChange + "<br>" +
-                 "Greatest increase: " + greatestIncrease[0] + " (" + greatestIncrease[1] + ")" + "<br>" +
-                 "Greatest decrease: " + greatestDecrease[0] + " (" + greatestDecrease[1] + ")" ;
-  
-    output.innerHTML = result;
+    if (change < greatestDecrease[1]) {
+      greatestDecrease[0] = finances[i][0];
+      greatestDecrease[1] = change;
+    }
+  }
+}
+
+// Calculate the average change
+var averageChange = changes.reduce((a, b) => a + b, 0) / changes.length;
+
+// Display the results in the console
+console.log("Total Months: " + totalMonths);
+console.log("Net Total: " + netTotal);
+console.log("Average Change: " + averageChange);
+console.log("Greatest Increase: " + greatestIncrease);
+console.log("Greatest Decrease: " + greatestDecrease);
+
+// Select the elements in the HTML table to display the results
+var totalMonthsEl = document.getElementById("total-months");
+var netTotalEl = document.getElementById("net-total");
+var averageChangeEl = document.getElementById("average-change");
+var greatestIncreaseEl = document.getElementById("greatest-increase");
+var greatestDecreaseEl = document.getElementById("greatest-decrease");
 
 
+// Display the results in the HTML table
+totalMonthsEl.textContent = totalMonths;
+netTotalEl.textContent = netTotal;
+averageChangeEl.textContent = averageChange;
+greatestIncreaseEl.textContent = greatestIncrease[0] + ": " + greatestIncrease[1];
+greatestDecreaseEl.textContent = greatestDecrease[0] + ": " + greatestDecrease[1];
