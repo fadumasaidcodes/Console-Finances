@@ -25,6 +25,6 @@ Your task is to write JavaScript code that analyzes the records to calculate eac
 * The greatest decrease in losses (date and amount) over the entire period.
 #### screeshot of the code solution 
 
-<img width="535" alt="Screenshot 2023-01-06 at 12 59 17 PM" src="https://user-images.githubusercontent.com/102771343/212195540-a87e7d4e-494f-438f-a255-708337436c36.png">
+<img width="1440" alt="Screenshot 2023-01-11 at 04 10 52" src="https://user-images.githubusercontent.com/102771343/212195794-e0808261-ad8a-411b-8194-d64275ac92d2.png">
 
 
