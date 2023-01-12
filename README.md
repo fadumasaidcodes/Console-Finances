@@ -28,3 +28,6 @@ Your task is to write JavaScript code that analyzes the records to calculate eac
 <img width="1440" alt="Screenshot 2023-01-12 at 22 36 15" src="https://user-images.githubusercontent.com/102771343/212196114-4fad3d90-a253-4cb5-8ba0-8406a1e314f2.png">
 
 
+<img width="1440" alt="Screenshot 2023-01-12 at 22 38 20" src="https://user-images.githubusercontent.com/102771343/212196359-6f699bf6-2ae1-47dc-a9e9-6e74d7817657.png">
+
+
